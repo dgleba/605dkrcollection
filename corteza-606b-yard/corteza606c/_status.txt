@@ -1,0 +1,19 @@
+
+Status:
+
+
+
+_____________
+
+
+albe@vamp398:/srv/dkr/605dkrcollection/corteza-606b-yard/corteza606c$ dc up
+Pulling db (percona:8.0)...
+ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.88.1:53: read udp 192.168.88.60:57124->192.168.88.1:53: i/o timeout
+albe@vamp398:/srv/dkr/605dkrcollection/corteza-606b-yard/corteza606c$
+
+
+Pulling db (percona:8.0)... ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 192.168.88.1:53: read udp 192.168.88.60:57124->192.168.88.1:53: i/o timeout
+
+
+_____________
+
