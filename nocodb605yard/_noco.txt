@@ -1,0 +1,25 @@
+=================================================
+
+2021-11-09_Tue_20.42-PM - first nocodb
+
+git clone https://github.com/nocodb/nocodb --depth=1 tmpnocodb
+rsync -a tmpnocodb/docker-compose/ nocodb605yard/dockers
+
+
+# cd nocodb605b/docker-compose
+# cd mysql 
+# cat docker-compose.yml
+# edit compose file
+#  then docker-compose up
+
+
+
+eg:
+
+git clone https://github.com/nocodb/nocodb
+cd docker-compose
+cd mysql or pg or mssql
+docker-compose up
+
+
+=================================================

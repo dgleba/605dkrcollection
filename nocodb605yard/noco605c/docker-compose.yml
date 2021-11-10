@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  root_db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    env_file: [ .env ]
+    environment:
+      MYSQL_DATABASE: root_db
+      MYSQL_USER: noco
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+
+  nocodb:
+    # http://10.4.1.228:8080
+    depends_on:
+      - root_db
+      # condition: service_healthy 
+    image: nocodb/nocodb:latest
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+    restart: always
+    env_file: [ .env ]
+    environment:
+      xNC_DB: "mysql2://root_db:3306?u=noco&p=pass&d=root_db"
+      worksNC_DB: "mysql2://root_db:3306?u=noco&p=dbpass&d=root_db"
+
+  adminer:
+    # http://10.4.1.228:9463
+    # 10.4.1.231:6117/  use db or 10.4.1.228:3308 for server while logging in.
+    image: adminer:4.7
+    restart: always
+    ports:
+      - 9463:8080
+
+volumes:
+  db_data: {}
