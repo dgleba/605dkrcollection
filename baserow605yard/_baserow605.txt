@@ -1,0 +1,10 @@
+
+mkdir baserow605yard
+cd baserow605yard
+
+git clone --branch master https://gitlab.com/bramw/baserow.git baserow605c --depth=1
+
+cd baserow605c
+
+HOST_PUBLISH_IP=0.0.0.0 PUBLIC_BACKEND_URL=http://10.4.1.228:8000 PUBLIC_WEB_FRONTEND_URL=http://10.4.1.228:3000 docker-compose up
+

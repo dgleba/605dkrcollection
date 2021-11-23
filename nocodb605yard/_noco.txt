@@ -23,3 +23,43 @@ docker-compose up
 
 
 =================================================
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@  
+#@  changed root_db to dbm, then back. - root access denied
+#@  
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   2021-11-23[Nov-Tue]11-49AM 
+
+https://stackoverflow.com/questions/59838692/mysql-root-password-is-set-but-getting-access-denied-for-user-rootlocalhost/59839180
+
+
+root_db_1  | 2021-11-11T08:36:03.367179Z 3601 [Note] Access denied for user 'root'@'localhost' (using password: NO)
+root_db_1  | 2021-11-11T08:36:34.135580Z 3602 [Note] Access denied for user 'root'@'localhost' (using password: NO)
+
+
+yes..
+https://docs.rackspace.com/support/how-to/reset-a-mysql-root-password
+yes..
+
+use mysql;
+update user set authentication_string=PASSWORD("noco345") where User='root';
+flush privileges;
+quit
+
+now it says:
+2021-11-23_Tue_12.19-PM
+root_db_1  | 2021-11-23T17:19:30.012537Z 12 [Note] Access denied for user 'root'@'localhost' (using password: NO)
+
+hmm. I dont care on this one, but will have to address it on production.
+
+
+_____________
+
+
+no..
+https://www.a2hosting.com/kb/developer-corner/mysql/reset-mysql-root-password
+UPDATE mysql.user SET Password=PASSWORD('new-password') WHERE User='root';
+UPDATE mysql.user SET password=PASSWORD('noco345') WHERE User='root';
+
+=================================================
