@@ -1,0 +1,161 @@
+    starting schedulerapp apps.py appconfig
+INFO:apscheduler.scheduler:Scheduler started
+Jobstore default:
+    No scheduled jobs
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+/usr/local/lib/python3.7/site-packages/apscheduler/util.py:95: PytzUsageWarning: The zone attribute is specific to pytz's interface; please migrate to a new time zone provider. For more details on how to do so, see https://pytz-deprecation-shim.readthedocs.io/en/latest/migration.html
+  if obj.zone == 'local':
+/usr/local/lib/python3.7/site-packages/apscheduler/triggers/interval.py:66: PytzUsageWarning: The normalize method is no longer necessary, as this time zone supports the fold attribute (PEP 495). For more details on migrating to a PEP 495-compliant implementation, see https://pytz-deprecation-shim.readthedocs.io/en/latest/migration.html
+  return self.timezone.normalize(next_fire_time)
+INFO:apscheduler.scheduler:Added job "SchedulerappConfig.ready.<locals>.myjob01" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2021-11-24 13:29:55.884799-05:00 (in 1799.990001 seconds)
+# -*- coding: utf-8 -*-
+from django.contrib import admin
+
+from .models import Post, Person, Group, Vehicle, Application, Application2, Vehicle2, Nc2BfwNcM2MNc2BfwContactsNc2BfwCities, Nc2BfwCities, Nc2BfwContacts
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('id', 'created', 'last_updated', 'title', 'body')
+    list_filter = ('created', 'last_updated')
+
+
+@admin.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    search_fields = ('name',)
+
+
+@admin.register(Group)
+class GroupAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    raw_id_fields = ('members',)
+    search_fields = ('name',)
+
+
+@admin.register(Vehicle)
+class VehicleAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'vehicle_maker',
+        'vehicle_model',
+        'vehicle_class_si_vehicle_segment',
+        'maximum_speed_kph',
+        'number_of_electric_motors',
+        'max_motor_power_kw',
+        'max_motor_torque_nm',
+        'max_motor_speed_rpm',
+        'source',
+        'created_at',
+        'updated_at',
+        'sort_order',
+        'active_status',
+    )
+    list_filter = ('created_at', 'updated_at')
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Application)
+class ApplicationAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'source',
+        'application',
+        'pts_topology',
+        'num_speeds',
+        'pts_supplier',
+        'total_gear_ratio',
+        'total_center_distance_mm',
+        'differential_type',
+        'load_spectrum_id',
+        'lubrication',
+        'created_at',
+        'updated_at',
+        'sort_order',
+        'active_status',
+    )
+    list_filter = ('created_at', 'updated_at')
+    raw_id_fields = ('vehicles',)
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Application2)
+class Application2Admin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'source',
+        'application',
+        'pts_topology',
+        'num_speeds',
+        'pts_supplier',
+        'total_gear_ratio',
+        'total_center_distance_mm',
+        'differential_type',
+        'load_spectrum_id',
+        'lubrication',
+        'created_at',
+        'updated_at',
+        'sort_order',
+        'active_status',
+    )
+    list_filter = ('created_at', 'updated_at')
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Vehicle2)
+class Vehicle2Admin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'vehicle_maker',
+        'vehicle_model',
+        'vehicle_class_si_vehicle_segment',
+        'maximum_speed_kph',
+        'number_of_electric_motors',
+        'max_motor_power_kw',
+        'max_motor_torque_nm',
+        'max_motor_speed_rpm',
+        'source',
+        'created_at',
+        'updated_at',
+        'sort_order',
+        'active_status',
+    )
+    list_filter = ('created_at', 'updated_at')
+    raw_id_fields = ('application2s',)
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Nc2BfwNcM2MNc2BfwContactsNc2BfwCities)
+class Nc2BfwNcM2MNc2BfwContactsNc2BfwCitiesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nc_2bfw_cities_c', 'nc_2bfw_contacts_p')
+    list_filter = ('nc_2bfw_cities_c', 'nc_2bfw_contacts_p')
+
+
+@admin.register(Nc2BfwCities)
+class Nc2BfwCitiesAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'created_at', 'updated_at', 'number')
+    list_filter = ('created_at', 'updated_at')
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Nc2BfwContacts)
+class Nc2BfwContactsAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'title',
+        'phone',
+        'name',
+        'picture',
+        'country',
+        'eml',
+        'title21',
+        'created_at',
+        'updated_at',
+    )
+    list_filter = ('created_at', 'updated_at')
+    raw_id_fields = ('cities',)
+    search_fields = ('name',)
+    date_hierarchy = 'created_at'

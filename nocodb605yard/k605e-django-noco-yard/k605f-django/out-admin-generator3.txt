@@ -1,0 +1,50 @@
+    starting schedulerapp apps.py appconfig
+INFO:apscheduler.scheduler:Scheduler started
+Jobstore default:
+    No scheduled jobs
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+/usr/local/lib/python3.7/site-packages/apscheduler/util.py:95: PytzUsageWarning: The zone attribute is specific to pytz's interface; please migrate to a new time zone provider. For more details on how to do so, see https://pytz-deprecation-shim.readthedocs.io/en/latest/migration.html
+  if obj.zone == 'local':
+/usr/local/lib/python3.7/site-packages/apscheduler/triggers/interval.py:66: PytzUsageWarning: The normalize method is no longer necessary, as this time zone supports the fold attribute (PEP 495). For more details on migrating to a PEP 495-compliant implementation, see https://pytz-deprecation-shim.readthedocs.io/en/latest/migration.html
+  return self.timezone.normalize(next_fire_time)
+INFO:apscheduler.scheduler:Added job "SchedulerappConfig.ready.<locals>.myjob01" to job store "default"
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2021-11-24 21:47:40.704425-05:00 (in 1799.995622 seconds)
+# -*- coding: utf-8 -*-
+from django.contrib import admin
+
+from .models import Tagg, Post, Nc2BfwTag, Nc2BfwNcM2MNc2BfwNoteNc2BfwTag, Nc2BfwNote
+
+
+@admin.register(Tagg)
+class TaggAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('id', 'created', 'last_updated', 'title', 'body')
+    list_filter = ('created', 'last_updated')
+    raw_id_fields = ('taggs',)
+
+
+@admin.register(Nc2BfwTag)
+class Nc2BfwTagAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'created_at', 'updated_at')
+    list_filter = ('created_at', 'updated_at')
+    date_hierarchy = 'created_at'
+
+
+@admin.register(Nc2BfwNcM2MNc2BfwNoteNc2BfwTag)
+class Nc2BfwNcM2MNc2BfwNoteNc2BfwTagAdmin(admin.ModelAdmin):
+    list_display = ('nc_2bfw_tag_c', 'nc_2bfw_note_p')
+    list_filter = ('nc_2bfw_tag_c', 'nc_2bfw_note_p')
+
+
+@admin.register(Nc2BfwNote)
+class Nc2BfwNoteAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'created_at', 'updated_at', 'body')
+    list_filter = ('created_at', 'updated_at')
+    raw_id_fields = ('tags',)
+    date_hierarchy = 'created_at'

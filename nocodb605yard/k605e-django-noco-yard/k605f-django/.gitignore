@@ -1,0 +1,17 @@
+*.pyc
+
+.env
+.env.secret
+.vscode
+
+staticfiles/
+mediafiles/
+djangosite/static/
+
+postgres/data/
+
+sysdata/
+datasys/
+data/
+
+#*.sqlite3

@@ -31,6 +31,8 @@ docker-compose up
 #@  
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   2021-11-23[Nov-Tue]11-49AM 
 
+docker mysql access denied for root
+
 https://stackoverflow.com/questions/59838692/mysql-root-password-is-set-but-getting-access-denied-for-user-rootlocalhost/59839180
 
 
@@ -46,6 +48,8 @@ use mysql;
 update user set authentication_string=PASSWORD("noco345") where User='root';
 flush privileges;
 quit
+
+==
 
 now it says:
 2021-11-23_Tue_12.19-PM

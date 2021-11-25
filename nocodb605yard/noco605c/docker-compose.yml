@@ -14,6 +14,9 @@ services:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       timeout: 20s
       retries: 10
+    ports:
+      - "9306:3306"
+
 
   nocodb:
     # http://10.4.1.228:8080

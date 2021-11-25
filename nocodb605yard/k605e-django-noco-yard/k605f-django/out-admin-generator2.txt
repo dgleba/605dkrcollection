@@ -1,0 +1,33 @@
+    starting schedulerapp apps.py appconfig
+Traceback (most recent call last):
+  File "manage.py", line 15, in <module>
+    execute_from_command_line(sys.argv)
+  File "/usr/local/lib/python3.7/site-packages/django/core/management/__init__.py", line 419, in execute_from_command_line
+    utility.execute()
+  File "/usr/local/lib/python3.7/site-packages/django/core/management/__init__.py", line 395, in execute
+    django.setup()
+  File "/usr/local/lib/python3.7/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/local/lib/python3.7/site-packages/django/apps/registry.py", line 122, in populate
+    app_config.ready()
+  File "/usr/local/lib/python3.7/site-packages/django/contrib/admin/apps.py", line 27, in ready
+    self.module.autodiscover()
+  File "/usr/local/lib/python3.7/site-packages/django/contrib/admin/__init__.py", line 24, in autodiscover
+    autodiscover_modules('admin', register_to=site)
+  File "/usr/local/lib/python3.7/site-packages/django/utils/module_loading.py", line 47, in autodiscover_modules
+    import_module('%s.%s' % (app_config.name, module_to_search))
+  File "/usr/local/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/code/blogapp/admin.py", line 26, in <module>
+    class PostAdminForm(forms.ModelForm):
+  File "/code/blogapp/admin.py", line 28, in PostAdminForm
+    class Meta:
+  File "/code/blogapp/admin.py", line 29, in Meta
+    model = models.Post
+AttributeError: module 'blogapp.models' has no attribute 'Post'
