@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "2fb336af-72eb-43b9-a339-353ebcd3945d",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "g",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "10.4.1.228:14808"
+			},
+			"response": []
+		},
+		{
+			"name": "post",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n \"text\": \r\n    {\r\n      \"lastname\": \"Doe\",\r\n      \"firstname\": \"Jane\",\r\n        \"category\": [\"Non-Fiction\", \"Technology\"]\r\n    }\r\n\r\n    \r\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "10.4.1.228:14808/create-data"
+			},
+			"response": []
+		}
+	]
+}

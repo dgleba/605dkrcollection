@@ -9,3 +9,5 @@ apscheduler
 gunicorn
 mysqlclient
 django-environ
+django-auth-ldap
+python-ldap

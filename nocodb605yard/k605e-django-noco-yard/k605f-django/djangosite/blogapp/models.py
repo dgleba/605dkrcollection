@@ -15,20 +15,25 @@ class Tagg(models.Model):
     def __str__(self):
         return  str(self.id) + " - " + self.title
 
-class Post(models.Model):
+class Tagb(models.Model):
+    title = models.CharField(max_length=45, blank=True, null=True)
 
-    # Fields
+    def __str__(self):
+        return  str(self.id) + " - " + self.title
+
+class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     title = models.CharField(max_length=230)
     body = models.TextField(max_length=32100, default=None, blank=True, null=True)
-    taggs = models.ManyToManyField(Tagg)
+    taggs = models.ManyToManyField(Tagg, blank=True, null=True)
+    tagbs = models.ManyToManyField(Tagb, blank=True, null=True)
 
     class Meta:
         pass
 
     def __str__(self):
-        return str(self.pk)
+        return str(self.pk) + " - " + self.title
 
     def get_absolute_url(self):
         return reverse("blogapp_Post_detail", args=(self.pk,))
@@ -60,9 +65,9 @@ class Nc2BfwNcM2MNc2BfwNoteNc2BfwTag(models.Model):
 
 class Nc2BfwNote(models.Model):
     title = models.CharField(max_length=45, blank=True, null=True)
-    tags = models.ManyToManyField(Nc2BfwTag, through="Nc2BfwNcM2MNc2BfwNoteNc2BfwTag")
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    tags = models.ManyToManyField(Nc2BfwTag, through="Nc2BfwNcM2MNc2BfwNoteNc2BfwTag", blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField(auto_now=True, editable=False)
     body = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
