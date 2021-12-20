@@ -1,0 +1,43 @@
+version: '3.6'
+
+services:
+
+    mesh:
+        restart: always
+        # container_name: meshcentral
+        # image: typhonragewind/meshcentral
+        build: .
+        user: 1000:1000
+        command: bash -c "cd /meshcentral; ls -la; node node_modules/meshcentral"
+        ports:
+            - 9086:443  
+            #MeshCentral will moan and try everything not to use port 80, but you can also use it if you so desire, just change the config.json according to your needs
+            - 9085:80   
+        #environment:
+            #- HOSTNAME=192.168.88.60
+            #- REVERSE_PROXY=false     #set to your reverse proxy IP if you want to put meshcentral behind a reverse proxy
+            # - REVERSE_PROXY=192.168.88.60
+            # - REVERSE_PROXY_TLS_PORT=4430
+            # - IFRAME=false    #set to true if you wish to enable iframe support
+            # - ALLOW_NEW_ACCOUNTS=true    #set to false if you want disable self-service creation of new accounts besides the first (admin)
+            # - WEBRTC=false  #set to true to enable WebRTC - per documentation it is not officially released with meshcentral, but is solid enough to work with. Use with caution
+            # - VIRTUAL_NETWORK=sister
+            # - VIRTUAL_PORT=4430
+            # - VIRTUAL_HOST=mesh.dg.jgleba.com
+            # - LETSENCRYPT_HOST=mesh.dg.jgleba.com
+            # - LETSENCRYPT_EMAIL=dgleba@gmail.com
+        volumes:
+            # - ../sysdata/meshcentral-data:/opt/meshcentral/meshcentral-data   #config.json and other important files live here. A must for data persistence
+            # - ./sysdata/meshcentral-user_files:/opt/meshcentral/meshcentral-files    #where file uploads for users live
+            #- ./config05.json:/opt/meshcentral/meshcentral-data/config.json
+        # networks:
+        #     - sister
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "100k"
+                max-file: "15"
+
+# networks:
+#   sister:
+#     name: sister

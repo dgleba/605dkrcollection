@@ -1,0 +1,17 @@
+
+
+status:
+
+2021-12-20_Mon_15.23-PM
+
+local web page loads.
+
+agent not showing up in web.
+
+
+=================================================
+
+from:
+https://github.com/uldiseihenbergs/meshcentral-builds/blob/master/Dockerfile
+https://github.com/dgleba/meshcentral-builds/blob/master/Dockerfile
+

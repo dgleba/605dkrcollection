@@ -1,0 +1,63 @@
+
+
+status:
+noworky
+
+
+from:
+https://github.com/Typhonragewind/meshcentral-docker
+
+
+
+==================================================
+
+
+Successfully tagged meshcentral613_mesh:latest
+albe@vamp398:/srv/dkr/605dkrcollection/meshcentral613$ dc up
+Creating network "meshcentral613_default" with the default driver
+Creating meshcentral613_mesh_1 ... done
+Attaching to meshcentral613_mesh_1
+mesh_1  | total 60
+mesh_1  | drwxrwxrwx   1 meshuser meshuser  4096 Dec 20 01:27 .
+mesh_1  | drwxr-xr-x   1 root     root      4096 Dec 20 00:48 ..
+mesh_1  | -rw-rw-r--   1 root     root       852 Dec 19 22:49 config.json.template
+mesh_1  | drwxr-xr-x   2 root     root      4096 Dec 20 01:27 meshcentral-data
+mesh_1  | drwxr-sr-x   2 root     root      4096 Dec 20 01:35 meshcentral-files
+mesh_1  | drwxr-xr-x 110 meshuser meshuser  4096 Dec 20 01:27 node_modules
+mesh_1  | -rw-r--r--   1 meshuser meshuser 32914 Dec 20 01:27 package-lock.json
+mesh_1  | Installing archiver@4.0.2...
+mesh_1  | Installing otplib@10.2.3...
+mesh_1  | ERR: /opt/meshcentral/node_modules/@yetzt/nedb/lib/datastore.js:77
+mesh_1  |     if (err) { throw err; }
+mesh_1  |                ^
+mesh_1  |
+mesh_1  | [Error: ENOENT: no such file or directory, open '/opt/meshcentral/meshcentral-data/meshcentral.db'] {
+mesh_1  |   errno: -2,
+mesh_1  |   code: 'ENOENT',
+mesh_1  |   syscall: 'open',
+mesh_1  |   path: '/opt/meshcentral/meshcentral-data/meshcentral.db'
+mesh_1  | }
+mesh_1  | ERROR: Unable to write to mesherrors.txt.
+mesh_1  | Error: Command failed: /usr/bin/node /opt/meshcentral/node_modules/meshcentral --launch 7
+mesh_1  | /opt/meshcentral/node_modules/@yetzt/nedb/lib/datastore.js:77
+mesh_1  |     if (err) { throw err; }
+mesh_1  |                ^
+mesh_1  |
+mesh_1  | [Error: ENOENT: no such file or directory, open '/opt/meshcentral/meshcentral-data/meshcentral.db'] {
+mesh_1  |   errno: -2,
+mesh_1  |   code: 'ENOENT',
+mesh_1  |   syscall: 'open',
+mesh_1  |   path: '/opt/meshcentral/meshcentral-data/meshcentral.db'
+mesh_1  | }
+mesh_1  |
+mesh_1  |     at ChildProcess.exithandler (child_process.js:383:12)
+mesh_1  |     at ChildProcess.emit (events.js:412:35)
+mesh_1  |     at maybeClose (internal/child_process.js:1058:16)
+mesh_1  |     at Process.ChildProcess._handle.onexit (internal/child_process.js:293:5) {
+mesh_1  |   killed: false,
+mesh_1  |   code: 1,
+mesh_1  |   signal: null,
+mesh_1  |   cmd: '/usr/bin/node /opt/meshcentral/node_modules/meshcentral --launch 7'
+mesh_1  | }
+mesh_1  | ERROR: MeshCentral failed with critical error, check mesherrors.txt. Restarting in 5 seconds...
+mesh_1  | E
