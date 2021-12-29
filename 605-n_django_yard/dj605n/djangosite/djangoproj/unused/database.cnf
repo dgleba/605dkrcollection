@@ -1,0 +1,7 @@
+[client]
+database = dkrdb
+host = 10.4.1.231
+port = 6612
+user = muser
+password = x
+default-character-set = utf8

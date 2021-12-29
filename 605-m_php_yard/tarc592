@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+function Purpose() {
+# begin block comment =============================
+: <<'END'
+
+
+#  Purpose:  tar the folder and give the archive a useful name..
+
+
+#  VERSION info
+	
+	v25 - 2021-06-14 -- find files grep exclude then tar
+
+
+chmod +x ~/bin/tarc4
+
+END
+# end block comment ===============================
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#cd ; 
+date ; set +vx  ; set -vx ; # echo off, then echo on
+#
+
+
+###### tar current folder..
+base=$(basename $PWD);export HOSTNAME;
+curfolder=${PWD##*/}
+echo base=$base    hostname=$HOSTNAME  curfolder=$curfolder
+
+dts=$(date +"__%Y.%m.%d_%H.%M.%S")
+
+
+tar1() {
+ 
+    # get the current path and replace / with _
+    fnpath="${PWD////_}" ; echo $fnpath
+
+
+	#	include data dir for this project..
+
+
+    tarf-one() {
+      tfile=/tmp/tmpfilefindtar23234.txt; 
+      find . -type f |  grep -Ev  \
+        '/sysdata/|/datasys/|/public/assets/|/x/|.tgz|/node_modules/|/zip/|/static/|/log/|/tmp/' > $tfile
+      tar -czf $HOSTNAME$fnpath$dts.tgz -T $tfile
+    }
+
+    # run one of the above..
+
+    tarf-one
+    
+}
+
+
+
+tar1
+
+#
+date
+#
+set +vx
+

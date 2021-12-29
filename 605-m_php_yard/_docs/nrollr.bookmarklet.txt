@@ -1,0 +1,74 @@
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@  
+#@  
+#@  
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   2021-12-26[Dec-Sun]12-12PM 
+
+
+[remote "origin"]
+	url = https://github.com/nrollr/Bookmarklet
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+
+_____________
+
+
+
+albe@host211220-1121:/ap/605dkrcollection/605-m_php_yard/php605m$ dc up php
+Recreating php605m_php_1 ...
+
+ERROR: for php605m_php_1  UnixHTTPConnectionPool(host='localhost', port=None): Read timed out. (read timeout=60)
+
+ERROR: for php  UnixHTTPConnectionPool(host='localhost', port=None): Read timed out. (read timeout=60)
+ERROR: An HTTP request took too long to complete. Retry with --verbose to obtain debug information.
+If you encounter this issue regularly because of slow network conditions, consider setting COMPOSE_HTTP_TIMEOUT to a higher value (current value: 60).
+albe@host211220-1121:/ap/605dkrcollection/605-m_php_yard/php605m$ 
+
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@  
+#@  
+#@  
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   2021-12-26[Dec-Sun]13-18PM 
+
+
+
+		<a class="section" href="javascript:window.open=
+		%22https://php.198.23.238.244.nip.io/nrollr/load.php
+		?url=
+		%22+encodeURIComponent(document.location)+%22&title=%22+encodeURIComponent(document.title) +
+		& source = %27_ blank %27, height = 800, width = 600
+		">
+
+
+orig:
+		<a class="section" href="javascript:window.location=%22https://php.198.23.238.244.nip.io/nrollr/load.php?url=%22+encodeURIComponent(document.location)+%22&title=%22+encodeURIComponent(document.title)">
+		
+<a class="section" href="javascript:window.location=%22https://php.198.23.238.244.nip.io/nrollr/load.php
+	?url=%22+encodeURIComponent(document.location)+%22&title=%22+encodeURIComponent(document.title)">
+
+
+javascript: (function() {
+    var url = location.href;
+    var title = document.title || url;
+    var desc = document.getSelection().toString();
+    if (desc.length > 4000) {
+        desc = desc.substr(0, 4000) + '...';
+        alert('The selected text is too long, it will be truncated.');
+    }
+    window.open('https://shar.d.jgleba.com/admin/shaare?post=%27  +
+        encodeURIComponent(url) +
+        %27 & title = %27 + encodeURIComponent(title) +
+        %27 & description = %27 +
+        encodeURIComponent(desc) +
+        %27 & source = bookmarklet %27, %27_ blank %27, %27 menubar = no, height = 800, width = 600, toolbar = no, scrollbars = yes, status = no, dialog = 1 %27
+    );
+})();
+
+
+
+
+
+

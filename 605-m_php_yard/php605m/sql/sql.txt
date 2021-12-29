@@ -1,0 +1,5 @@
+
+see
+
+.. pts_592_e_yard/pts592f/mysql/docker-entrypoint-initdb.d/dgnote130.sql
+

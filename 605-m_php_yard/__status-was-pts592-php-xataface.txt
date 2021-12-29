@@ -1,0 +1,34 @@
+
+status:
+
+works.
+
+    it works with mysql 8 and php 7.3
+
+
+noworky:
+
+    php5.5 has errors. I didn't get that to work.
+
+_____________
+
+
+pts_592_c_yard = test on local 88.60 vm.
+
+pts_592_e_yard =  use for production.
+
+pts_592_g-example_yard =  example.
+
+_____________
+
+
+
+
+goal:
+
+xataface docker setup 2021
+
+
+
+_____________
+

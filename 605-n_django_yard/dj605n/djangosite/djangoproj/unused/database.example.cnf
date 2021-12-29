@@ -1,0 +1,6 @@
+[client]
+database = dkrdb
+host = dbm
+user = a
+password = a
+default-character-set = utf8
