@@ -1,6 +1,0 @@
-
-django>=2.2,<3.0
-
-python-dotenv==0.10.3
-
-django-extensions

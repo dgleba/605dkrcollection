@@ -1,7 +1,0 @@
-
-sudo du /srv/dkr/datasys -cxh --max-depth=4 | sort -h  |tail -n 20
-
- du /srv/dkr/datasys -cxh --max-depth=4 | sort -h  |tail -n 20
-
-#sleep 44
-# 
