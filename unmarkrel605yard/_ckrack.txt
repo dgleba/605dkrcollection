@@ -1,0 +1,12 @@
+
+https://github.com/ckrack/unmark
+
+https://github.com/cdevroe/unmark/issues/112
+
+
+ckrack commented on Apr 20, 2015
+Out of personal need i created importers as a custom extension to unmark.
+https://github.com/ckrack/unmark/tree/custom-import
+
+I will not create a pull request, as these already seem to be in the private code and the ones i created are tweaked as in creating tags for the bookmark folders of netscape import.
+Also the code is not the cleanest, as i tried to use the Mark_Import class without changing it, and it's depending on checks like the one for export_version, that are dependent on the JSON Importer and are not needed for other imports..

@@ -1,0 +1,94 @@
+# ref..
+# https://gist.github.com/satendra02/1b335b06bfc5921df486f26bd98e0e89
+# https://www.reddit.com/r/docker/comments/7zjbe4/docker_rails_puma_nginx_postgres/
+# https://itnext.io/docker-rails-puma-nginx-postgres-999cd8866b18
+
+version: "3.6"
+
+networks:
+  sister:
+    name: sister
+  net543b:
+    name: net543b
+
+services:
+
+
+  jproxy:
+  # docker-compose pull nproxy to update...
+    image: jwilder/nginx-proxy:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./vol/nginx/certs:/etc/nginx/certs:ro
+      - ./vol/nginx/html:/usr/share/nginx/html
+      - ./vol/nginx/vhost.d:/etc/nginx/vhost.d:ro
+      # dgleba add hardening by using this enhanced config.
+      - ./docker/jproxy/nginxhard.conf:/etc/nginx/nginx.conf
+      # - ./vol/nginx/conf.d:/etc/nginx/conf.d/
+      # if need be add this file with your global settings..
+      # - ./vol/nginx/conf.d/my_proxy.conf:/etc/nginx/conf.d/my_proxy.conf:ro
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+    restart: always
+    networks:
+      - sister
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "7"
+
+  lets:
+    image: jrcs/letsencrypt-nginx-proxy-companion:v1.13.1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./vol/nginx/vhost.d:/etc/nginx/vhost.d
+      - ./vol/nginx/certs:/etc/nginx/certs:rw
+      - ./vol/nginx/html:/usr/share/nginx/html
+    restart: always
+    networks:
+      - sister
+    depends_on:
+      - jproxy
+    # links will share the volumes between containers.
+    links:
+      - jproxy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "8"
+
+
+  # h.powderforward.com
+  home:
+    # 192.168.88.60:6216
+    image: nginx:1.19-alpine
+    # ports:
+    #   - "6219:8083"
+    expose:
+      - "8083"
+    volumes:
+      - ./docker/home-nginx/nginxmain.conf:/etc/nginx/nginx.conf
+      - ./docker/home-nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./homepage:/usr/share/nginx/html
+    restart: always
+    networks:
+      - sister
+    environment:
+      - VIRTUAL_HOST=zpowderforward.com
+      - LETSENCRYPT_HOST=zpowderforward.com
+      - VIRTUAL_PORT=8083
+      - LETSENCRYPT_EMAIL=dgleba@stackpole.com
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+
+volumes:
+  mysqldata:
+  
