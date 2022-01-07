@@ -1,0 +1,10 @@
+version: "3.6"
+services:
+  nu:
+    user: "1000:33"
+    working_dir:  /code
+    image: node:16-slim
+    expose:
+      - "80"
+    volumes:
+      - ./code:/code

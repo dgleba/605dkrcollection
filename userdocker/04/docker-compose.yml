@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  nu:
+    # user: "1000:33"
+    # working_dir:  /home/node
+    image: ubuntu:20.04
+    # build: .
+    expose:
+      - "80"
+    volumes:
+      - ./home:/home/usr
