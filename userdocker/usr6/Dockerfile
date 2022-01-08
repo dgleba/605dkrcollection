@@ -1,4 +1,5 @@
-FROM node:16-slim
+#FROM node:16-slim
+FROM ubuntu:20.04
 
 # RUN apt-get -y update \
 # 	&& apt-get install -y curl
@@ -16,15 +17,16 @@ FROM node:16-slim
 # EXPOSE 80
 # If yout want use vue-cli UI you need to also EXPORT 8000 
 
+#RUN mkdir -p /bag/code
+# RUN chown -R 1000:33 /bag/code 
 
-USER node
+RUN useradd -m  -G www-data albe; 
 
-RUN mkdir -p /home/node/code
-WORKDIR /home/node/code
+USER    albe
+WORKDIR /bag
+RUN     id albe; pwd; ls -laR;
 
-# RUN mkdir -p /home/node  \
-#     && chown -R 1000:33 /home/node
 
 
 # switch to npm if you chose it as package manager
-CMD ["yarn", "serve"]
+CMD ["bash"]

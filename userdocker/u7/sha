@@ -1,0 +1,14 @@
+
+export iiname=userdocker_aa; echo ${PWD}; 
+docker rmi $iiname
+docker build -t $iiname .
+#
+runa() {
+    echo $1; echo iiname=$iiname
+    docker run --rm -v "${PWD}/$1:/$1" -w "/$1"  -it $iiname sh -c "touch afile;"
+}
+# error: touch: cannot touch 'afile': Permission denied
+ls -l code; runa code
+# Works!
+mkdir code2; runa code2; ls -laR;
+

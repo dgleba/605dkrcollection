@@ -17,12 +17,12 @@ grp:
 
 tst:
 	# docker-compose run --rm nu bash -c "cat /etc/group "
-	docker-compose run --rm nu bash -c "touch tstfile"
-	docker-compose run --rm nu bash -c "ls -la"
 	# docker-compose run --rm nu bash -c 'chown -R 1000:33 . '
+	docker-compose run --rm nu bash -c "pwd; #touch tstfile; ls -lar; mkdir code; touch code/tstfile3; ls -laR"
+	docker-compose run --rm nu bash -c "ls -la"
 
 
-
+dkp
 
 
 

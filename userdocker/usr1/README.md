@@ -1,7 +1,7 @@
 # Instructions.
 
 ```
-docker-compose run --rm nu bash -c "cat /etc/group ; npm init"
+docker-compose run --rm nu bash -c "cat /etc/group ; whoami; id node; pwd; ls -laR; npm init"
 
 ```
 
@@ -30,6 +30,10 @@ drwxr-xr-x 2 root root 4096 Jan  6 10:38 code
 
 
 =================================================
+
+
+https://github.com/nodejs/docker-node/issues/740
+
 
 ```
 Permissions error - after declaring USER and WORKDIR #740

@@ -4,8 +4,8 @@ services:
     # user: "1000:33"
     # working_dir:  /home/node
     image: ubuntu:20.04
-    # build: .
+    #build: .
     expose:
       - "80"
     volumes:
-      - ./home:/home/usr
+      - ./bag:/bag
