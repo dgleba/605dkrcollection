@@ -1,0 +1,16 @@
+
+export iiname=userdocker_u8; echo ${PWD}; 
+docker rmi $iiname
+#touch package.json 
+docker build -t $iiname .
+#
+runa() {
+    echo $1; echo iiname=$iiname
+    # docker run --rm -v "${PWD}/$1:/home/node/$1" -w "/home/node/$1"  -it $iiname sh -c "touch afile; npm i"
+    docker run --rm -v "${PWD}/$1:/home/node/$1" -w "/home/node/$1"  $iiname 
+}
+# error: touch: cannot touch 'afile': Permission denied
+# ls -l code; runa code
+# Works!
+mkdir -p app; runa app; ls -laR;
+
