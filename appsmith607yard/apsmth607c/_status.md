@@ -1,5 +1,27 @@
+=================================================
+
+status:
+works, i think.
 
 
+_____________
+
+
+issues:
+
+some things to fix.
+
+I could not get a blank form to add record. It was prepolated.
+date format not compaible with mysql datetime.
+
+
+=================================================
+
+
+http://192.168.88.60:8031
+
+
+=================================================
 
 _____________
 
