@@ -3,11 +3,11 @@ version: "3"
 services:
   appsmith:
     image: index.docker.io/appsmith/appsmith-ce
-    container_name: appsmith
+    # container_name: appsmith
     ports:
-      - "80:80"
-      - "443:443"
-      - "9001:9001"
+      - "8031:80"
+      - "4431:443"
+      - "9031:9001"
     volumes:
       - ./stacks:/appsmith-stacks
     labels:
